@@ -1,0 +1,3 @@
+ C:\Users\isisc\IA\comfyUI\python_embeded\python.exe -m  pip install -r win_requirements.txt
+ C:\Users\isisc\IA\comfyUI\python_embeded\python.exe -m  pip install spar3d
+ C:\Users\isisc\IA\comfyUI\python_embeded\python.exe run.py

@@ -1,0 +1,10 @@
+research_manette:
+  description: >
+    Conduct a through research about {question} with  the APi  
+    Make sure you find any interesting and relevant information to answer {question}.
+
+  expected_output: >
+    a clear and concise summary of the research findings and a final answer to {question}.
+  agent: agent_manette
+
+

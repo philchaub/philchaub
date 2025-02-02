@@ -1,0 +1,27 @@
+research_geometry_nodes:
+  description: >
+    In this task you should answer to a technical question about using geometry nodes in blender.
+    Use the tool to Conduct a through research in the blender geometry node documentation with the APi.
+    Make sure you find any interesting and relevant information to answer.
+    Once you have tried one tool and output seems ok, no need to retry anymore tools.
+    do not makeup imaginary tools on your own.
+    task output is a string.
+  expected_output: >
+    a clear and concise summary of the research findings and a final answer.
+  agent: agent_geometry_nodes
+
+
+tutoring:
+  description: >
+    In this task you should produce a a clear and concise tutorial for blender geometry nodes.
+    the subject of this tutorial is {goal}.
+    start by making a plan of the geometry nodes group you have to build to achieve the goal of the tutorial:{goal}.
+    for each node, you could ask to agent senior_geometry_nodes any details you need.
+    make sure that every node or node property you want to use exists.
+    if not, imagine what kind of node could exist that would allow you to do so.
+    in each case, you can ask the senior_geometry_nodes agent for detailed information about blender's geometry node system.
+    do not makeup imaginary tools on your own.
+    task output is a string.
+  expected_output: >
+    a clear and concise tutorial explaining how to build the geometry node group responding to {goal}
+  agent: tutor
