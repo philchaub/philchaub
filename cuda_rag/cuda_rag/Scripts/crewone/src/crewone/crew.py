@@ -8,7 +8,7 @@ from typing import Type
 import requests
 from crewai.tools import tool
 
-from crewai.cli.constants import ENV_VARS
+from crewai.cli.constants import ENV_VARSfo
 
 # Override the key name dynamically
 for entry in ENV_VARS.get("ollama", []):

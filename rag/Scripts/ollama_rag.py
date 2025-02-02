@@ -109,7 +109,7 @@ def start():
     global embeddings
     global paragraphs
     source = "ressource_documents"
-    filename = "ManetteTools.pdf"
+    filename = "geometry_node_editor_guide.pdf"
     paragraphs = parse_file(source + "/" + filename, source)
     embeddings = get_embeddings(filename, "nomic-embed-text", paragraphs)
     return
@@ -191,8 +191,8 @@ def crewAsk(prompt):
     prompt_embedding = ollama.embeddings(model="nomic-embed-text", prompt=prompt)["embedding"]
     # find most similar to each other
     most_similar_chunks = find_most_similar(prompt_embedding, embeddings)[:5]
-    paraphs = "\n".join(paragraphs[item[1]] for item in most_similar_chunks)
-    """response = ollama.chat(
+    #paraphs = "\n".join(paragraphs[item[1]] for item in most_similar_chunks)
+    response = ollama.chat(
         model="mistral",
         messages=[
             {
@@ -204,10 +204,10 @@ def crewAsk(prompt):
 
         ],
         options={"temperature": 0.0}
-    )"""
-    print(paraphs)
+    )
+    #print(paraphs)
     stat = "FINISHED"
-    return paraphs #response["message"]["content"]
+    return response["message"]["content"] #paraphs
 
 
 @app.post("/talk/")

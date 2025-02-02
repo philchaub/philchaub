@@ -8,7 +8,7 @@ research_geometry_nodes:
     task output is a string.
   expected_output: >
     a clear and concise summary of the research findings and a final answer.
-  agent: agent_geometry_nodes
+  agent: researcher
 
 
 tutoring:

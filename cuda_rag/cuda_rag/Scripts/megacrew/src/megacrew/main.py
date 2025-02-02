@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import sys
 import warnings
-from . import crew
+
 from datetime import datetime
 
-from blendercrew.crew import Blendercrew
+from megacrew.crew import Megacrew
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -12,9 +12,6 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # crew locally, so refrain from adding unnecessary logic into this file.
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
-
-#TODO scraping the blender manual to get the information about the geometry node editor
-#TODO use a rag with source pdf 
 
 def run():
     """
@@ -28,9 +25,8 @@ def run():
         'goal':'creating a modifier made with geometry node editor, that allows to modify the level of subdivision of an object, according to the distance to the camera.',
         'script':'C:/Users/isisc/IA/cuda_rag/cuda_rag/Scripts/blendercrew/src/blendercrew/tools/testScript.py'
     }
-    
     try:
-        crew.Blendercrew.crew.kickoff(inputs=inputs)
+        Megacrew().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -40,13 +36,10 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        'blender_manual': 'https://docs.blender.org/manual/en/latest/',
-        'topic': 'blender tutorial about geometry node editor',
-        'current_version': '4.0',
-        'goal':'write a tutorial about creating a modifier made with geometry node editor, that allows to modify the level of subdivision of an object, according to the distance to the camera.'
+        "topic": "AI LLMs"
     }
     try:
-        Blendercrew().crew().train(n_iterations=3, filename= "your_model.pkl", inputs=inputs)
+        Megacrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -56,7 +49,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        Blendercrew().crew().replay(task_id=sys.argv[1])
+        Megacrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -69,7 +62,7 @@ def test():
         "topic": "AI LLMs"
     }
     try:
-        Blendercrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        Megacrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
