@@ -40,6 +40,7 @@ def tool_wrapper(prompt):#*args, **kwargs
         print("prompt = ",prompt)
         response = requests.post(f"{BASE_URL}/{request}/?prompt={prompt}")
         answer = response.content.decode("utf-8")
+        print("answer",answer)
         return answer
     return _run(prompt)
     

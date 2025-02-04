@@ -26,7 +26,14 @@ def run():
         'script':'C:/Users/isisc/IA/cuda_rag/cuda_rag/Scripts/blendercrew/src/blendercrew/tools/testScript.py'
     }
     try:
-        Megacrew().crew().kickoff(inputs=inputs)
+
+        flow = Megacrew()
+        result = flow.kickoff()
+        print(f"Final Blog Post:\\n{result}")
+
+
+
+        # Megacrew().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
