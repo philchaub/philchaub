@@ -114,6 +114,7 @@ def start():
     embeddings = get_embeddings(filename, "nomic-embed-text", paragraphs)
     return
 
+# from blender about manetteTools
 @app.post("/ask/")
 def ask(prompt): 
     global stat
@@ -162,7 +163,7 @@ def ask(prompt):
         stat = "FAILED"
         return stat"""
 
-
+# from crewai about geometry_nodes
 @app.post("/crew/")
 def crewAsk(prompt):
     global stat
@@ -173,7 +174,7 @@ def crewAsk(prompt):
 
     SYSTEM_PROMPT = """You are a helpful reading assistant
                 based on text excerpts provided in context. Answer only using the context provided,
-                being as concise as possible. If you are unsure, just say you don't know
+                being as concise as possible. If you are unsure, just say you found no infos.
                 Context:
                 """
 
@@ -183,7 +184,7 @@ def crewAsk(prompt):
     if len(embeddings)==0:
         print("reload documents")
         source = "ressource_documents"
-        filename = "geometry_node_editor_guide.pdf"
+        filename = "blender_geometry_node_editor_doc.pdf"
         paragraphs = parse_file(source + "/" + filename, source)
         embeddings = get_embeddings(filename, "nomic-embed-text", paragraphs)
 
@@ -209,7 +210,7 @@ def crewAsk(prompt):
     stat = "FINISHED"
     return response["message"]["content"] #paraphs
 
-
+# from blender about everything
 @app.post("/talk/")
 def talk(prompt):
     global stat
